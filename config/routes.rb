@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Get login token from Knock
+  post 'sign_in', to: 'user_token#create'
+
+  resources :users, only: [:create, :update]
+  get '/users/current', to: 'users#current'
+
+  resources :restaurants, only: [:create]
+  post '/restaurant/add_shift', to: 'restaurants#add_shift'
+  post '/restaurant/add_table', to: 'restaurants#add_table'
 end
