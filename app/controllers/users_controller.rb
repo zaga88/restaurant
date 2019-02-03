@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user,  only: [:current, :update, :auth]
+  before_action :authenticate_user,  only: %i[current update auth]
 
   def auth
     render json: { success: true, status: 200, message: "You are currently Logged-in as #{current_user.username}" }
