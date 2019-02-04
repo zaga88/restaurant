@@ -12,19 +12,19 @@ class RestaurantsController < ApplicationController
 
   def add_shift
     shift = @restaurant.shifts.build(basic_params(:shift))
-    if shift.save!
+    if shift.save
       render json: { success: true, status: 200, message: 'Shift was created!'}
     else
-      json_error_response('Create Shift', shift.errors.messages)
+      json_error_response('Create shift failed', shift.errors.messages)
     end
   end
 
   def add_table
     table = @restaurant.tables.build(basic_params(:table))
-    if table.save!
+    if table.save
       render json: { success: true, status: 200, message: 'Table was created!'}
     else
-      json_error_response('Create table', table.errors.messages)
+      json_error_response('Create table failed', table.errors.messages)
     end
   end
 
