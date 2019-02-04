@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_rest,  only: %i[add_shift add_table reservation]
+  before_action :authenticate_rest,  only: %i[add_shift add_table reservations]
 
   def create
     restaurant = current_class.new(basic_params(:restaurant))
@@ -26,6 +26,11 @@ class RestaurantsController < ApplicationController
     else
       json_error_response('Create table failed', table.errors.messages)
     end
+  end
+
+  def reservations
+    render json: { success: true, status: 200,
+                   reservations: ReservationBlueprint.render_as_hash(@restaurant.reservations)}
   end
 
   private

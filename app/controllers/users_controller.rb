@@ -14,13 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # Call this method to check if the user is logged-in.
-  # If the user is logged-in we will return the user's information.
-  def current
-    current_user.update!(last_login: Time.now)
-    render json: current_user
-  end
-
   def update
     user = current_class.find(params[:id])
     if user.update(user_params)

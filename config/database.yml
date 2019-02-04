@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: rastaurant_test
+  database: restaurant
   pool: 5
   username: user
   password:
