@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
 
   def reservations
     render json: { success: true, status: 200,
-                   reservations: ReservationBlueprint.render_as_hash(@restaurant.reservations)}
+                   reservations: ReservationBlueprint.render_as_hash(@restaurant.reservations.includes(:table, :user))}
   end
 
   private

@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @reserv.user.name %></h1>
+    <p>Your reservation in <%= @reserv.restaurant.name %> restauran, table is: <%= @reserv.table.name %></p>
+    <p>Your guests count is: <%= @reserv.guest_count %></p>
+    <p>Reservation time from <%= @reserv.start_at %> to <%= @reserv.end_at %></p>
+    <p>Restaurant contact number: <%= @reserv.restaurant.phone_number %></p>
+  </body>
+</html>

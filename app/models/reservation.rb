@@ -1,4 +1,5 @@
 class Reservation < ApplicationRecord
+  after_create :send_emails
 
   validate :reservation_uniqueness!, on: :create
   validate :check_table_guest!
@@ -30,5 +31,10 @@ class Reservation < ApplicationRecord
        self.end_at.to_formatted_s(:time) <= shift.end_time.to_formatted_s(:time)
           errors.add(:id, "Time of reservation is invalid")
     end
+  end
+
+  def send_emails
+    RestauranMailer.send_user_reserv(self).deliver_now
+    RestauranMailer.send_restaurant_reserv(self).deliver_now
   end
 end
