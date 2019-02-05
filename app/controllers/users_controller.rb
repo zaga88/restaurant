@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user = current_class.find(params[:id])
     if user.update(user_params)
       render json: { status: 200,
-                     message: 'User details have been updated.'
+                     message: 'User details have been updated.',
                      user: user
                     }
     else
