@@ -1,24 +1,50 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Api for reservation of restaurant tables *
 
-* Ruby version
+* Endpoints *
 
-* System dependencies
+POST /users | params => user[name]
+                        user[password]
+                        user[password_confirmation]
+                        user[email]
 
-* Configuration
+POST /sign_in | params => auth[email]
+                          auth[password]
 
-* Database creation
+PUT /users/:id | params => user[name]
+                            user[password]
+                            user[password_confirmation]
+                            user[email]
+                 header => Authorization
 
-* Database initialization
+POST /restaurants | params => restaurant[name]
+                              restaurant[email]
+                              restaurant[phone_number]
 
-* How to run the test suite
+POST /restaurants/add_shift | params => restaurant[name]
+                                        restaurant[start_time]
+                                        restaurant[end_time]
+                              header => RestToken
 
-* Services (job queues, cache servers, search engines, etc.)
+POST /restaurants/add_table | params => restaurant[name]
+                                        restaurant[min_guest]
+                                        restaurant[max_guest]
+                              header => RestToken
 
-* Deployment instructions
+GET /restaurants/reservations | header => RestToken
 
-* ...
+POST /reservations | params => reservation[start_at]
+                               reservation[end_at]
+                               reservation[guest_count]
+                               reservation[table_id]
+                               reservation[shift_id]
+                      header => Authorization
+
+PUT /reservations/:id | params => reservation[start_at]
+                               reservation[end_at]
+                               reservation[guest_count]
+                               reservation[table_id]
+                               reservation[shift_id]
+                      header => Authorization
