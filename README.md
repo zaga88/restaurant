@@ -1,50 +1,50 @@
 # README
 
 
-* Api for reservation of restaurant tables *
+* Api for reservation of restaurant tables
 
-* Endpoints *
+* Endpoints
 
-POST /users | params => user[name]
-                        user[password]
-                        user[password_confirmation]
-                        user[email]
+* POST /users |  <br /> params => user[name] <br />
+                        user[password] <br />
+                        user[password_confirmation] <br />
+                        user[email] <br />
 
-POST /sign_in | params => auth[email]
+* POST /sign_in |  <br /> params => auth[email]  <br />
                           auth[password]
 
-PUT /users/:id | params => user[name]
-                            user[password]
-                            user[password_confirmation]
-                            user[email]
-                 header => Authorization
+* PUT /users/:id |  <br /> params => user[name]  <br />
+                            user[password]  <br />
+                            user[password_confirmation]  <br />
+                            user[email]  <br />
+                 header => Authorization  <br />
 
-POST /restaurants | params => restaurant[name]
-                              restaurant[email]
-                              restaurant[phone_number]
+* POST /restaurants |  <br /> params => restaurant[name]  <br />
+                              restaurant[email]  <br />
+                              restaurant[phone_number]  <br />
 
-POST /restaurants/add_shift | params => restaurant[name]
-                                        restaurant[start_time]
-                                        restaurant[end_time]
-                              header => RestToken
+* POST /restaurants/add_shift |  <br /> params => restaurant[name]  <br />
+                                        restaurant[start_time] <br />
+                                        restaurant[end_time] <br />
+                              header => RestToken  <br />
 
-POST /restaurants/add_table | params => restaurant[name]
-                                        restaurant[min_guest]
-                                        restaurant[max_guest]
-                              header => RestToken
+* POST /restaurants/add_table | <br /> params => restaurant[name] <br />
+                                        restaurant[min_guest] <br />
+                                        restaurant[max_guest] <br />
+                              header => RestToken <br />
 
-GET /restaurants/reservations | header => RestToken
+* GET /restaurants/reservations | header => RestToken
 
-POST /reservations | params => reservation[start_at]
-                               reservation[end_at]
-                               reservation[guest_count]
-                               reservation[table_id]
-                               reservation[shift_id]
-                      header => Authorization
+* POST /reservations | <br /> params => reservation[start_at] <br />
+                               reservation[end_at] <br />
+                               reservation[guest_count] <br />
+                               reservation[table_id] <br />
+                               reservation[shift_id] <br />
+                      header => Authorization <br />
 
-PUT /reservations/:id | params => reservation[start_at]
-                               reservation[end_at]
-                               reservation[guest_count]
-                               reservation[table_id]
-                               reservation[shift_id]
-                      header => Authorization
+* PUT /reservations/:id | <br /> params => reservation[start_at] <br />
+                               reservation[end_at] <br />
+                               reservation[guest_count] <br />
+                               reservation[table_id] <br />
+                               reservation[shift_id] <br />
+                      header => Authorization <br />

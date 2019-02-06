@@ -3,7 +3,7 @@ require 'jwt'
 class Restaurant < ApplicationRecord
 
   before_save :create_token
-  after_save :send_token
+  # after_save :send_token
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :phone_number, format: { with: /\d{1}-\d{3}-\d{3}-\d{3}/}
