@@ -32,6 +32,17 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
+    :user_name => "postmaster@sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
+    :password => "3023d4d68f04b592ffdeb0ec5a235ad8-1b65790d-7fabc2d1"
+  }
+
+
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
@@ -54,7 +65,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "restaurant_#{Rails.env}"
 
-  config.action_mailer.perform_caching = false
+  #config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
