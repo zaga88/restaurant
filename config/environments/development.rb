@@ -31,11 +31,21 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.default_url_options = { host: 'localhost:3001', protocol: :http }
+  # config.action_mailer.default_url_options = { host: 'localhost:3001', protocol: :http }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
+    :user_name => "postmaster@sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
+    :password => "3023d4d68f04b592ffdeb0ec5a235ad8-1b65790d-7fabc2d1"
+  }
+
+
+  # config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 

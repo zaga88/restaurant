@@ -3,10 +3,14 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = current_class.new(basic_params(:restaurant))
-    if restaurant.save
-      render json: { success: true, status: 200, message: 'Restaurant was created!'}
-    else
-      json_error_response('Create failed', restaurant.errors.messages)
+    begin
+      if restaurant.save
+        render json: { success: true, status: 200, message: 'Restaurant was created!'}
+      else
+        json_error_response('Create failed', restaurant.errors.messages)
+      end
+    rescue Exception => e
+      render json: { success: true, status: 200, message: e }
     end
   end
 
