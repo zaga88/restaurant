@@ -39,7 +39,7 @@ Rails.application.configure do
     :port => 587,
     :domain => "sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
     :user_name => "postmaster@sandbox7bbf8b4b852b4516ad4f8721fdbfa7b7.mailgun.org",
-    :password => "3023d4d68f04b592ffdeb0ec5a235ad8-1b65790d-7fabc2d1"
+    :password => "d2ccdab1823fbbc0b9a40259e6eccc58-1b65790d-46801482"
   }
 
 
