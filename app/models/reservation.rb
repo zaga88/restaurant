@@ -34,7 +34,7 @@ class Reservation < ApplicationRecord
   end
 
   def send_emails
-    RestauranMailer.send_user_reserv(self).deliver_now
-    RestauranMailer.send_restaurant_reserv(self).deliver_now
+    RestaurantMailer.send_user_reserv(self).deliver_now
+    RestaurantMailer.send_restaurant_reserv(self).deliver_now
   end
 end
