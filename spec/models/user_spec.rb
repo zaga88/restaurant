@@ -7,10 +7,10 @@ RSpec.describe User, type: :model do
       expect(user.name).to eql('Test')
     end
     it "should require a email" do
-      build(:user, :email => "adsds").should_not be_valid
+      expect(build(:user, email: "adsds")).not_to be_valid
     end
     it "should require a password" do
-      build(:user, :password => "adsds").should_not be_valid
+      expect(build(:user, password: "adsds")).not_to be_valid
     end
   end
 end
